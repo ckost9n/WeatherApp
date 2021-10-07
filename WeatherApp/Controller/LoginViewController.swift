@@ -96,7 +96,7 @@ extension LoginViewController {
 
 // MARK: - Check Users
 
-extension LoginViewController: UITextFieldDelegate {
+extension LoginViewController {
     
     private func checkUserData() -> Bool {
         return loginTextField.text == userName && passwordTextField.text == userPassword
