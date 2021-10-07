@@ -43,7 +43,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KhX-d2-1jM">
                                                                 <rect key="frame" x="0.0" y="52" width="228" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9br-wo-K26">
                                                                 <rect key="frame" x="75.5" y="116" width="77" height="22"/>
@@ -54,7 +54,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWu-ER-OkD">
                                                                 <rect key="frame" x="0.0" y="168" width="228" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ny-NK-06W">
                                                                 <rect key="frame" x="80.5" y="232" width="67" height="31"/>
@@ -64,7 +64,7 @@
                                                                     <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="signinPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CeP-JM-lbV"/>
+                                                                    <segue destination="Lhk-fo-QT9" kind="presentation" identifier="weatherCell" id="bIe-Ct-pPL"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -123,7 +123,87 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="27.536231884057973" y="79.6875"/>
+            <point key="canvasLocation" x="-130" y="80"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="cEf-jX-T5g">
+            <objects>
+                <tableViewController id="LYI-5D-6mR" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6Vu-EE-FeZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bZU-1g-QLV">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bZU-1g-QLV" id="9RG-S8-oVg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LYI-5D-6mR" id="64Y-2a-Wsm"/>
+                            <outlet property="delegate" destination="LYI-5D-6mR" id="4HY-aT-Fex"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZVc-oQ-Dso"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UbY-vH-rSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-646"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="sQ0-CW-JG5">
+            <objects>
+                <tableViewController id="xim-sg-CWF" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eby-Aw-CaE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MYi-JD-4Iq">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MYi-JD-4Iq" id="6yU-NR-n10">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xim-sg-CWF" id="VeZ-gl-ZSg"/>
+                            <outlet property="delegate" destination="xim-sg-CWF" id="Lof-LO-mP8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="pAM-DF-a0p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ENX-CV-ayh">
+                            <connections>
+                                <segue destination="LYI-5D-6mR" kind="show" id="nQ2-rr-zAd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Dy-PC-v8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZY5-tu-tf0">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="Lhk-fo-QT9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zAf-pk-1iH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xim-sg-CWF" kind="relationship" relationship="rootViewController" id="e8q-wK-fpz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1A-CH-4qc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="80"/>
         </scene>
     </scenes>
     <resources>

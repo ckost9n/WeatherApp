@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     private let userName = "User"
-    private let password = "Password"
+    private let userPassword = "Password"
 
     @IBOutlet var scrolView: UIScrollView!
     @IBOutlet var loginTextField: UITextField!
@@ -32,16 +32,12 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction func signinPressed(_ sender: UIButton) {
-        print(#function)
-    }
-    
     @IBAction func scrollTapped(_ gesture: UIGestureRecognizer) {
         scrolView.endEditing(true)
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -49,7 +45,20 @@ class LoginViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "weatherCell" {
+            let isValid = checkUserData()
+            if !isValid {
+                showAlert(title: "Ошибка", message: "Не правильно указаны логин и пароль!")
+            }
+            return isValid
+        }
+        
+        return false
+    }
 
 }
 
@@ -81,6 +90,26 @@ extension LoginViewController {
         scrolView.contentInset = .zero
     }
     
+    
+    
+}
+
+// MARK: - Check Users
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    private func checkUserData() -> Bool {
+        return loginTextField.text == userName && passwordTextField.text == userPassword
+    }
+    
+    private func showAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alerAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(alerAction)
+        present(alert , animated: true, completion: nil)
+    }
     
     
 }
