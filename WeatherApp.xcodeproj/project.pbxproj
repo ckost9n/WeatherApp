@@ -13,6 +13,8 @@
 		3C2DAA54270D95BF00D0554E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C2DAA53270D95BF00D0554E /* Assets.xcassets */; };
 		3C2DAA57270D95BF00D0554E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2DAA55270D95BF00D0554E /* LaunchScreen.storyboard */; };
 		3C2DAA5F270D972300D0554E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DAA5E270D972300D0554E /* LoginViewController.swift */; };
+		3C2DAA912715D79900D0554E /* AllCitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DAA902715D79900D0554E /* AllCitiesTableViewController.swift */; };
+		3C2DAA942715D9CF00D0554E /* AllCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DAA932715D9CE00D0554E /* AllCitiesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3C2DAA56270D95BF00D0554E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C2DAA58270D95BF00D0554E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C2DAA5E270D972300D0554E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3C2DAA902715D79900D0554E /* AllCitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesTableViewController.swift; sourceTree = "<group>"; };
+		3C2DAA932715D9CE00D0554E /* AllCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2DAA65270D980800D0554E /* Storyboards */,
+				3C2DAA922715D9A600D0554E /* Cell */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2DAA5E270D972300D0554E /* LoginViewController.swift */,
+				3C2DAA902715D79900D0554E /* AllCitiesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +111,14 @@
 				3C2DAA55270D95BF00D0554E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3C2DAA922715D9A600D0554E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3C2DAA932715D9CE00D0554E /* AllCitiesCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +194,8 @@
 			files = (
 				3C2DAA5F270D972300D0554E /* LoginViewController.swift in Sources */,
 				3C2DAA4B270D95B900D0554E /* AppDelegate.swift in Sources */,
+				3C2DAA912715D79900D0554E /* AllCitiesTableViewController.swift in Sources */,
+				3C2DAA942715D9CF00D0554E /* AllCitiesCell.swift in Sources */,
 				3C2DAA4D270D95B900D0554E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
