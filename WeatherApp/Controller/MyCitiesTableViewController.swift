@@ -1,31 +1,38 @@
 //
-//  AllCitiesTableViewController.swift
+//  MyCitiesTableViewController.swift
 //  WeatherApp
 //
-//  Created by Konstantin on 12.10.2021.
+//  Created by Konstantin on 13.10.2021.
 //
 
 import UIKit
 
-class AllCitiesTableViewController: UITableViewController {
+class MyCitiesTableViewController: UITableViewController {
     
-    private let cities: [String] = [
-        "Moskov",
-        "London",
-        "New-York"
-    ]
-    
+    var cities: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(44)
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        print(#function)
     }
+    
+    
 
     // MARK: - Table view data source
+
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -34,14 +41,12 @@ class AllCitiesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "allCitiesCell", for: indexPath) as! AllCitiesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCitiesCell", for: indexPath)
 
-        cell.cityLabel.text = cities[indexPath.row]
+        cell.textLabel?.text = cities[indexPath.row]
 
         return cell
     }
-    
-    
     
 
     /*
@@ -78,13 +83,15 @@ class AllCitiesTableViewController: UITableViewController {
         return true
     }
     */
+
     
     // MARK: - Navigation
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "unwind", sender: self)
-    }
 
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//    }
     
     
 

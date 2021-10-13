@@ -142,15 +142,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-YL-oeG">
-                                            <rect key="frame" x="34" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-YL-oeG">
+                                            <rect key="frame" x="188.5" y="12.5" width="37" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemPurpleColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IjB-YL-oeG" firstAttribute="centerX" secondItem="9RG-S8-oVg" secondAttribute="centerX" id="fqg-jj-odf"/>
+                                        <constraint firstItem="IjB-YL-oeG" firstAttribute="centerY" secondItem="9RG-S8-oVg" secondAttribute="centerY" id="ghm-am-Vyl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityLabel" destination="IjB-YL-oeG" id="6uw-ZO-gtK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -159,12 +165,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZVc-oQ-Dso"/>
+                    <connections>
+                        <segue destination="pfX-Oa-TyG" kind="unwind" identifier="unwind" unwindAction="unwindWithSegue:" id="uOV-ju-aSQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UbY-vH-rSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pfX-Oa-TyG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1609" y="-646"/>
         </scene>
-        <!--Root View Controller-->
+        <!--My Cities-->
         <scene sceneID="sQ0-CW-JG5">
             <objects>
                 <tableViewController id="xim-sg-CWF" sceneMemberID="viewController">
@@ -173,12 +183,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="currentCitiesCell" id="MYi-JD-4Iq" customClass="AllCitiesCell" customModule="WeatherApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCitiesCell" textLabel="6SS-jB-G0A" style="IBUITableViewCellStyleDefault" id="MYi-JD-4Iq">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MYi-JD-4Iq" id="6yU-NR-n10">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6SS-jB-G0A">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="s7m-c5-zFn" kind="show" identifier="showDetail" id="MNF-OE-d1w"/>
@@ -190,7 +209,7 @@
                             <outlet property="delegate" destination="xim-sg-CWF" id="Lof-LO-mP8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="pAM-DF-a0p">
+                    <navigationItem key="navigationItem" title="My Cities" id="pAM-DF-a0p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ENX-CV-ayh">
                             <connections>
                                 <segue destination="LYI-5D-6mR" kind="show" identifier="addCities" id="nQ2-rr-zAd"/>
