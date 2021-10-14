@@ -9,20 +9,24 @@ import UIKit
 
 class MyCitiesTableViewController: UITableViewController {
     
-    var cities: [String] = []
+    private var cities: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
-        print(#function)
+        guard
+            let allCitiesVC = segue.source as? AllCitiesTableViewController,
+            let indexPath = allCitiesVC.tableView.indexPathForSelectedRow
+        else { return }
+        let city = allCitiesVC.cities[indexPath.row]
+        
+        guard !cities.contains(city) else { return }
+        
+        cities.append(city)
+        tableView.reloadData()
     }
     
     
@@ -46,6 +50,13 @@ class MyCitiesTableViewController: UITableViewController {
         cell.textLabel?.text = cities[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
 

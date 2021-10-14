@@ -9,7 +9,7 @@ import UIKit
 
 class AllCitiesTableViewController: UITableViewController {
     
-    private let cities: [String] = [
+    let cities: [String] = [
         "Moskov",
         "London",
         "New-York"
@@ -81,9 +81,7 @@ class AllCitiesTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "unwind", sender: self)
-    }
+
 
     
     

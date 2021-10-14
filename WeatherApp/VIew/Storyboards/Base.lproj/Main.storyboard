@@ -57,7 +57,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                                             </textField>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ny-NK-06W">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ny-NK-06W" customClass="weatherCell">
                                                                 <rect key="frame" x="80.5" y="232" width="67" height="31"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" title="Button">
@@ -65,7 +65,7 @@
                                                                     <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <segue destination="Lhk-fo-QT9" kind="presentation" identifier="weatherCell" id="bIe-Ct-pPL"/>
+                                                                    <segue destination="lqN-F2-uZB" kind="show" identifier="weatherCell" id="jb6-lZ-jER"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -124,12 +124,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-130" y="80"/>
+            <point key="canvasLocation" x="609" y="80"/>
         </scene>
         <!--All Cities Table View Controller-->
         <scene sceneID="cEf-jX-T5g">
             <objects>
-                <tableViewController id="LYI-5D-6mR" customClass="AllCitiesTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="LYI-5D-6mR" customClass="AllCitiesTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="6Vu-EE-FeZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,6 +156,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cityLabel" destination="IjB-YL-oeG" id="6uw-ZO-gtK"/>
+                                    <segue destination="pfX-Oa-TyG" kind="unwind" unwindAction="unwindWithSegue:" id="xdW-rh-Wsv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -165,19 +166,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZVc-oQ-Dso"/>
-                    <connections>
-                        <segue destination="pfX-Oa-TyG" kind="unwind" identifier="unwind" unwindAction="unwindWithSegue:" id="uOV-ju-aSQ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UbY-vH-rSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pfX-Oa-TyG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="-646"/>
+            <point key="canvasLocation" x="2519" y="-656"/>
         </scene>
         <!--My Cities-->
         <scene sceneID="sQ0-CW-JG5">
             <objects>
-                <tableViewController id="xim-sg-CWF" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="xim-sg-CWF" customClass="MyCitiesTableViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eby-Aw-CaE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,7 +198,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="s7m-c5-zFn" kind="show" identifier="showDetail" id="MNF-OE-d1w"/>
+                                    <segue destination="s7m-c5-zFn" kind="show" id="HEn-wz-zca"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -209,22 +207,24 @@
                             <outlet property="delegate" destination="xim-sg-CWF" id="Lof-LO-mP8"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Cities" id="pAM-DF-a0p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ENX-CV-ayh">
                             <connections>
-                                <segue destination="LYI-5D-6mR" kind="show" identifier="addCities" id="nQ2-rr-zAd"/>
+                                <segue destination="LYI-5D-6mR" kind="show" id="zG1-2W-O4d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dy-PC-v8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="80"/>
+            <point key="canvasLocation" x="2518.840579710145" y="79.6875"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Weather Collection View Controller-->
         <scene sceneID="626-T8-Vnk">
             <objects>
-                <collectionViewController id="s7m-c5-zFn" sceneMemberID="viewController">
+                <collectionViewController modalPresentationStyle="fullScreen" id="s7m-c5-zFn" customClass="WeatherCollectionViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wLE-nK-CKe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,12 +236,25 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="weatherCell" id="DEF-ac-aMg">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="weatherCell" id="DEF-ac-aMg" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="laS-VF-8zu">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.dust.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RRq-Ox-HN7">
+                                            <rect key="frame" x="39" y="37" width="50" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="VSC-ny-fQ1"/>
+                                                <constraint firstAttribute="width" constant="50" id="hjf-ot-zc8"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RRq-Ox-HN7" firstAttribute="centerX" secondItem="laS-VF-8zu" secondAttribute="centerX" id="eog-rK-4eI"/>
+                                        <constraint firstItem="RRq-Ox-HN7" firstAttribute="centerY" secondItem="laS-VF-8zu" secondAttribute="centerY" id="wZo-DC-kxS"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
@@ -254,26 +267,30 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwK-wI-RID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="80"/>
+            <point key="canvasLocation" x="3350.7246376811595" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ZY5-tu-tf0">
+        <scene sceneID="vJ4-YI-xtZ">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="Lhk-fo-QT9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zAf-pk-1iH">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="lqN-F2-uZB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bSu-Uh-GIB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y5D-mw-hgC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xim-sg-CWF" kind="relationship" relationship="rootViewController" id="e8q-wK-fpz"/>
+                        <segue destination="xim-sg-CWF" kind="relationship" relationship="rootViewController" id="BbR-ha-ypT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T1A-CH-4qc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ko0-dv-mcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="80"/>
+            <point key="canvasLocation" x="1608.6956521739132" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
+        <image name="sun.dust.fill" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
